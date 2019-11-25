@@ -1,13 +1,11 @@
 package com.federicogallardo.mutantAPI.Controllers;
 
-import javax.transaction.Transactional;
-
 import com.federicogallardo.mutantAPI.Entities.Person;
-import com.federicogallardo.mutantAPI.Repositories.MutantPagingRepository;
 import com.federicogallardo.mutantAPI.Services.MutantPagingService;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +24,7 @@ public class MutantPagingController {
     
 
     @GetMapping("/{page}")
-    @Transactional
+    @CrossOrigin("*")
     public Page<Person> getAllPeople(Pageable pageable, @PathVariable int page){
         try{
             return this.service.getPeople(pageable, page);
