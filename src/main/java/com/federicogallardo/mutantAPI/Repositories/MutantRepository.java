@@ -12,4 +12,7 @@ public interface MutantRepository extends JpaRepository<Person, Integer>{
     
     @Query(value="SELECT MUTANT,HUMAN FROM MutantDB.mutantdbstats s",nativeQuery = true)
     List<IStats> getStats();
+
+    @Query("FROM Person p WHERE p.dni = ?1")
+    List<Person> findPersonByDNI(String dni);
 }
