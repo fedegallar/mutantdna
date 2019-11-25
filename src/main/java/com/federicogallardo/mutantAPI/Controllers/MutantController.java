@@ -56,7 +56,7 @@ public class MutantController{
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin
+    @CrossOrigin("*")
     public ResponseEntity deletePerson(@PathVariable int id){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(this.service.DeletePerson(id));
